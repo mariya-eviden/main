@@ -1,0 +1,18 @@
+
+[theme]
+base="dark"
+backgroundColor="#002733"  # Official Eviden Dark Blue is #002d3c (little bit lighter)
+secondaryBackgroundColor="#19323B"
+
+[runner]
+magicEnabled = false
+
+[browser]
+gatherUsageStats = false
+
+[server]
+runOnSave = true
+
+[client]
+showErrorDetails = true
+toolbarMode = "developer"
