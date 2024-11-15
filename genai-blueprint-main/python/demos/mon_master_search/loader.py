@@ -17,17 +17,24 @@ from loguru import logger
 from pydantic import BaseModel
 from unidecode import unidecode
 
-from python.ai_core.embeddings import EmbeddingsFactory
-from python.ai_core.llm import get_llm
-from python.ai_core.loaders import load_docs_from_jsonl, save_docs_to_jsonl
-from python.ai_core.prompts import def_prompt
-from python.ai_core.vector_store import VectorStoreFactory
-from python.ai_retrievers.bm25s_retriever import (
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+
+from ai_core.embeddings import EmbeddingsFactory
+from ai_core.llm import get_llm
+from ai_core.loaders import load_docs_from_jsonl, save_docs_to_jsonl
+from ai_core.prompts import def_prompt
+from ai_core.vector_store import VectorStoreFactory
+from ai_retrievers.bm25s_retriever import (
     BM25FastRetriever,
     get_spacy_preprocess_fn,
 )
-from python.config import get_config_str
-from python.demos.mon_master_search.model_subset import (
+from config import get_config_str
+from demos.mon_master_search.model_subset import (
     ACRONYMS,
     STOP_WORDS,
     ParcoursFormations,

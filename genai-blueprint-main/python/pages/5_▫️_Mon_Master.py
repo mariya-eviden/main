@@ -14,9 +14,15 @@ import streamlit as st
 from langchain.retrievers import EnsembleRetriever
 from langchain_core.runnables import Runnable
 
-import python.demos.mon_master_search.search as master_search
-from python.demos.mon_master_search.loader import add_accronym
-from python.demos.mon_master_search.model_subset import EXAMPLE_QUERIES
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+import demos.mon_master_search.search as master_search
+from demos.mon_master_search.loader import add_accronym
+from demos.mon_master_search.model_subset import EXAMPLE_QUERIES
 
 LLM = "gemini_pro_google"
 

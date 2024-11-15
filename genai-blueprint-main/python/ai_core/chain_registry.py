@@ -33,8 +33,13 @@ from langchain_core.runnables import Runnable, RunnableLambda
 from loguru import logger
 from pydantic import BaseModel, ConfigDict, FilePath
 
-from python.config import get_config_list, get_config_str
+import os
+import sys
 
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from config import get_config_list, get_config_str
 
 class Example(BaseModel):
     """

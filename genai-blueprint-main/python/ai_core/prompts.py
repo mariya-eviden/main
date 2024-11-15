@@ -19,7 +19,13 @@ from langchain_core.runnables import RunnableLambda
 from loguru import logger
 from pydantic import BaseModel
 
-from python.ai_core.llm import get_llm
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_core.llm import get_llm
 
 DEFAULT_SYSTEM_PROMPT = ""
 

@@ -38,6 +38,8 @@ def yaml_file_config(fn: str = CONFIG_FILE) -> Tuple[dict, dict]:
 
     assert yml_file.exists(), f"cannot find {yml_file}"
 
+    overridden_conf =  {}
+
     logger.info(f"load {yml_file}")
 
     with open(yml_file, "r") as f:

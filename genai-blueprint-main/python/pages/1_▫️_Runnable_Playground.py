@@ -5,13 +5,19 @@ from pathlib import Path
 import streamlit as st
 from langchain.callbacks import tracing_v2_enabled
 
-from python.ai_core.chain_registry import (
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_core.chain_registry import (
     find_runnable,
     get_runnable_registry,
     load_modules_with_chains,
 )
-from python.config import get_config_str
-from python.GenAI_Lab import config_sidebar
+from config import get_config_str
+from GenAI_Lab import config_sidebar
 
 st.title("💬 Runnable Playground")
 

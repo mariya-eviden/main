@@ -31,8 +31,14 @@ from loguru import logger
 from pydantic import BaseModel, ConfigDict, Field, computed_field, field_validator
 from typing_extensions import Annotated
 
-from python.ai_core.embeddings import EmbeddingsFactory
-from python.config import get_config_str
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_core.embeddings import EmbeddingsFactory
+from config import get_config_str
 
 # from langchain_chroma import Chroma  does not work (yet?) with self_query
 

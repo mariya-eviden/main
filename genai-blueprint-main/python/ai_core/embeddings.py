@@ -16,7 +16,13 @@ from langchain.embeddings.base import Embeddings
 from pydantic import BaseModel, Field, computed_field, field_validator
 from typing_extensions import Annotated
 
-from python.config import get_config_str
+
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from config import get_config_str
 
 _ = load_dotenv(verbose=True)
 

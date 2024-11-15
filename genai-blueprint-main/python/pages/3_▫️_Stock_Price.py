@@ -10,9 +10,15 @@ from langchain.callbacks import tracing_v2_enabled
 from langchain_core.messages import HumanMessage, SystemMessage, ToolMessage
 from langchain_core.tools import tool
 
-from python.ai_core.cache import LlmCache
-from python.ai_core.llm import get_llm
-from python.config import get_config_str
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_core.cache import LlmCache
+from ai_core.llm import get_llm
+from config import get_config_str
 
 st.set_page_config(layout="wide")
 
@@ -133,7 +139,7 @@ def call_functions(llm_with_tools, user_prompt):
 
 
 def main():
-    llm = get_llm(llm_id="llama31_70_groq", cache=LlmCache.NONE, streaming=False)
+    llm = get_llm(llm_id="llama32_3_ollama", cache=LlmCache.NONE, streaming=False)
 
     #    llm = LlmFactory(llm_id="gpt_35_openai").get()
 

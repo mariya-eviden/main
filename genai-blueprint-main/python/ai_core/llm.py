@@ -25,6 +25,7 @@ The module handles API keys through environment variables defined in API_KEYS.
 
 
 import os
+import sys
 from functools import cached_property, lru_cache
 from pathlib import Path
 from typing import cast
@@ -37,12 +38,21 @@ from loguru import logger
 from pydantic import BaseModel, Field, computed_field, field_validator
 from typing_extensions import Annotated
 
-from python.ai_core.cache import LlmCache, set_cache
-from python.config import get_config_str
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_core.cache import LlmCache, set_cache
+from config import get_config_str
 
 load_dotenv(verbose=True, override=True)
 
-
+import sys 
+#Import functions from parent directiry "python" 
+# #For that, we need to change the path - see https://stackoverflow.com/questions/61058798/python-relative-import-in-jupyter-notebook 
+cdir = os.path.dirname( os.path.abspath('')) 
+if cdir not in sys.path: 
+    sys.path.append(cdir)
+    
 MAX_TOKENS = 2048
 
 

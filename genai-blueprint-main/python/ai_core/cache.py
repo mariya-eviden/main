@@ -4,12 +4,17 @@ Helper  for LLM Cache configuration
 
 from enum import Enum
 from pathlib import Path
+import os
+import sys
 
 from langchain.globals import get_llm_cache, set_llm_cache
 from langchain_community.cache import InMemoryCache, SQLiteCache
 from loguru import logger
 
-from python.config import get_config_str
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from config import get_config_str
 
 
 class LlmCache(str, Enum):

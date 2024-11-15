@@ -10,9 +10,15 @@ from langchain_experimental.agents import create_pandas_dataframe_agent
 from loguru import logger  # noqa: F401
 from streamlit.runtime.uploaded_file_manager import UploadedFile
 
-from python.ai_core.llm import get_llm
-from python.GenAI_Lab import config_sidebar
-from python.utils.streamlit.load_data import (
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_core.llm import get_llm
+from GenAI_Lab import config_sidebar
+from utils.streamlit.load_data import (
     TABULAR_FILE_FORMATS_READERS,
     load_tabular_data,
 )

@@ -15,7 +15,13 @@ import streamlit as st
 from crewai import Agent, Crew, Process, Task
 from langchain_community.tools import DuckDuckGoSearchRun
 
-from python.ai_core.llm import get_llm
+import os
+
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_core.llm import get_llm
 
 # NOTE: to find which model names you have, use cli tool:  `ollama list`
 llm = get_llm()

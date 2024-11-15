@@ -34,14 +34,20 @@ from langchain_core.runnables import RunnableConfig
 from loguru import logger
 from pydantic import BaseModel, Field
 
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
 # from pydantic import BaseModel, Field
-from python.ai_core.agents_builder import get_agent_builder
-from python.ai_core.embeddings import EmbeddingsFactory
-from python.ai_core.llm import LlmFactory
-from python.ai_core.prompts import dedent_ws, def_prompt
-from python.ai_core.vector_store import VectorStoreFactory
-from python.config import get_config_str
-from python.demos.maintenance_agent.maintenance_data import dummy_database
+from ai_core.agents_builder import get_agent_builder
+from ai_core.embeddings import EmbeddingsFactory
+from ai_core.llm import LlmFactory
+from ai_core.prompts import dedent_ws, def_prompt
+from ai_core.vector_store import VectorStoreFactory
+from config import get_config_str
+from demos.maintenance_agent.maintenance_data import dummy_database
 
 # Tools setup
 PROCEDURES = [

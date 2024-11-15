@@ -8,13 +8,19 @@ from langchain_community.retrievers import BM25Retriever
 from langchain_core.runnables import Runnable
 from loguru import logger
 
-from python.ai_core.embeddings import EmbeddingsFactory
-from python.ai_core.loaders import load_docs_from_jsonl
-from python.ai_core.vector_store import VectorStoreFactory
-from python.ai_retrievers.bm25s_retriever import (
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_core.embeddings import EmbeddingsFactory
+from ai_core.loaders import load_docs_from_jsonl
+from ai_core.vector_store import VectorStoreFactory
+from ai_retrievers.bm25s_retriever import (
     get_spacy_preprocess_fn,
 )
-from python.demos.mon_master_search.model_subset import EXAMPLE_QUERIES
+from demos.mon_master_search.model_subset import EXAMPLE_QUERIES
 
 DEFAULT_RESULT_COUNT = 20
 RATIO_SPARSE = 50

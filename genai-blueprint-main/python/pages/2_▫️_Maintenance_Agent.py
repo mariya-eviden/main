@@ -14,15 +14,21 @@ from langchain.callbacks import tracing_v2_enabled
 from langsmith import Client
 from loguru import logger  # noqa: F401
 
-from python.ai_agents.maintenance_agents import DATA_PATH, PROCEDURES, MaintenanceAgent
-from python.ai_core.embeddings import EmbeddingsFactory
-from python.ai_core.llm import LlmFactory
-from python.ai_core.prompts import dedent_ws
-from python.config import get_config_str
-from python.demos.maintenance_agent.maintenance_data import dummy_database
-from python.GenAI_Lab import config_sidebar
-from python.utils.streamlit.clear_result import with_clear_container
-from python.utils.streamlit.thread_issue_fix import get_streamlit_cb
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_agents.maintenance_agents import DATA_PATH, PROCEDURES, MaintenanceAgent
+from ai_core.embeddings import EmbeddingsFactory
+from ai_core.llm import LlmFactory
+from ai_core.prompts import dedent_ws
+from config import get_config_str
+from demos.maintenance_agent.maintenance_data import dummy_database
+from GenAI_Lab import config_sidebar
+from utils.streamlit.clear_result import with_clear_container
+from utils.streamlit.thread_issue_fix import get_streamlit_cb
 
 # fmt:off
 SAMPLE_PROMPTS = {

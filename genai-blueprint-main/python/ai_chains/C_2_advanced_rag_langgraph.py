@@ -23,12 +23,18 @@ from langgraph.graph.graph import CompiledGraph
 from loguru import logger
 from typing_extensions import TypedDict
 
-from python.ai_core.chain_registry import Example, RunnableItem, register_runnable
-from python.ai_core.embeddings import EmbeddingsFactory
-from python.ai_core.llm import get_llm
-from python.ai_core.prompts import def_prompt
-from python.ai_core.tools import basic_web_search
-from python.ai_core.vector_store import VectorStoreFactory
+import os
+import sys
+
+project_root = '/mnt/c/Users/a884470/prj/genai-blueprint-main'  # Change this if needed
+sys.path.append(os.path.join(project_root, 'python'))
+
+from ai_core.chain_registry import Example, RunnableItem, register_runnable
+from ai_core.embeddings import EmbeddingsFactory
+from ai_core.llm import get_llm
+from ai_core.prompts import def_prompt
+from ai_core.tools import basic_web_search
+from ai_core.vector_store import VectorStoreFactory
 
 """
 Suggested extensions :
